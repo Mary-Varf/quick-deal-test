@@ -6,8 +6,7 @@
                @handle-enter="saveInput"
     />
 
-    <SaveBtn :disabled="isBtnDisabled"
-             data-name="save"
+    <SaveBtn data-name="save"
              @save="saveInput"
     />
   </div>

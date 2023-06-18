@@ -206,6 +206,9 @@ h1 {
   border-bottom-left-radius: 0;
   white-space: nowrap;
 }
+input {
+  min-width: 200px;
+}
 @media(max-width: 1240px) {
   .glass-effect {
     padding: 50px;

@@ -101,9 +101,6 @@ export default {
 </script>
 
 <style type="text/css">
-input {
-  min-width: 200px;
-}
 .item {
   display: flex;
   justify-content: space-between;
