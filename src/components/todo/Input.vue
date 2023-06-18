@@ -5,6 +5,7 @@
          :value="text"
          @input="handelChangeInput"
          @focus="setEditModeTaskId"
+         @keydown="handleKeyDown"
   />
 </template>
 
@@ -32,6 +33,11 @@ export default {
     },
     setEditModeTaskId () {
       this.$store.commit('setEditModeTaskId', this.id);
+    },
+    handleKeyDown (e) {
+      if(e.keyCode === 13) {
+        this.$emit('handle-enter');
+      }
     },
   },
   watch: {

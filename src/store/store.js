@@ -30,8 +30,7 @@ export const store = new Vuex.Store({
     },
 
     addToDo (state, todoText) {
-      console.log(state.todos.length)
-      const newId = !!state.todos.length ? state.todos.length + 1 : 1;
+      const newId = state.todos.length ? state.todos.slice(-1)[0].id + 1 : 1;
         state.todos.push({
         id: newId,
         text: todoText,

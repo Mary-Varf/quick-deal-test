@@ -3,9 +3,11 @@
     <ToDoInput :text="updatedText"
                :id="defaultInputId"
                @change-text="changeText"
+               @handle-enter="saveInput"
     />
 
     <SaveBtn :disabled="isBtnDisabled"
+             data-name="save"
              @save="saveInput"
     />
   </div>

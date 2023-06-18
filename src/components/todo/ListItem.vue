@@ -8,37 +8,38 @@
            :checked="task.done"
            @click="toggleDone"
     />
-    <transition name="bounce">
-    <ToDoInput v-if="hasEditMode"
+    <ToDoInput v-show="hasEditMode"
                :id="task.id"
                :text="task.text"
                @change-text="changeText"
+               @handle-enter="handleSave"
     />
 
     <label class="label"
-           v-else
+           v-show="!hasEditMode"
            :for="task.id"
            :class="{'done': task.done}">
       {{ task.text }}
     </label>
-    </transition>
 
     <div class="item_btns">
       <button class="btn"
+              data-name="save"
               v-if="hasEditMode"
-              :disabled="isBtnSaveDisable"
               @click="handleSave">
         <SaveIcon />
       </button>
 
       <button class="btn"
+              data-name="edit"
               :disabled="hasEditMode"
               @click="handleEdit">
         <EditIcon />
       </button>
 
       <button class="btn"
-            @click="handleDelete">
+              data-name="delete"
+              @click="handleDelete">
         <DeleteIcon />
       </button>
     </div>
@@ -69,9 +70,6 @@ export default {
     hasEditMode () {
       return this.$store.state.editTaskId == this.task.id;
     },
-    isBtnSaveDisable () {
-      return !(this.updatedText.length + this.task.text.length);
-    },
   },
   methods: {
     toggleDone () {
@@ -87,17 +85,18 @@ export default {
       this.updatedText = text;
     },
     handleSave () {
-      if (!this.updatedText) {
+      // console.log(!this.updatedText !this.task.text)
+      if (!(this.updatedText || this.task.text)) {
         return;
       }
-      this.$store.commit('editToDo', { id: this.task.id, text: this.updatedText });
+      const text = this.updatedText.length ? this.updatedText : this.task.text;
+      this.$store.commit('editToDo', { id: this.task.id, text });
       this.setEditModeId(0);
     },
     setEditModeId (id) {
       this.$store.commit('setEditModeTaskId', id);
     },
-
-  }
+  },
 }
 </script>
 
@@ -113,12 +112,13 @@ input {
   font-size: 16px;
   gap: 20px;
   border-radius: 10px;
-  background-color: white;
+  background-color: var(--white);
   margin: 10px;
   color: black;
+  transition: color 0.5s;
 }
 .item:hover {
-  background-color: #e1adfd;
+ color: var(--coral);
 }
 .done {
   text-decoration: line-through;

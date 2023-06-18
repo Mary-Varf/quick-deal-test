@@ -5,8 +5,11 @@
     <ToDoCreate/>
     <ToDoList />
 
-    <button class="btn btn-fixed">
-      <router-link to="/"><GoBackIcon /></router-link>
+    <button class="btn btn-fixed"
+            data-name="go back">
+      <router-link to="/">
+        <GoBackIcon />
+      </router-link>
     </button>
   </section>
 </template>
@@ -15,6 +18,7 @@
 import ToDoList from "./List.vue";
 import ToDoCreate from './Create.vue';
 import GoBackIcon from "./icons/Goback.vue";
+
 export default {
   name: 'ToDoPage',
   components: {
