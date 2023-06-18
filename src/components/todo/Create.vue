@@ -2,6 +2,7 @@
   <div class="create">
     <ToDoInput :text="updatedText"
                :id="defaultInputId"
+               ref="mainInput"
                @change-text="changeText"
                @handle-enter="saveInput"
     />
@@ -45,6 +46,12 @@ export default {
       this.$store.commit('addToDo', this.updatedText);
       this.updatedText = '';
     },
+    focusInput () {
+      this.$refs.mainInput.$refs.input.focus();
+    },
+  },
+  mounted () {
+    this.focusInput();
   },
 }
 </script>

@@ -8,15 +8,16 @@
            :checked="task.done"
            @click="toggleDone"
     />
-    <ToDoInput v-show="hasEditMode"
+    <ToDoInput v-if="hasEditMode"
                :id="task.id"
                :text="task.text"
+               ref="inputContainer"
                @change-text="changeText"
                @handle-enter="handleSave"
     />
 
     <label class="label"
-           v-show="!hasEditMode"
+           v-else
            :for="task.id"
            :class="{'done': task.done}">
       {{ task.text }}
@@ -48,6 +49,7 @@
 </template>
 
 <script>
+import Vue from 'vue';
 import DeleteIcon from "./icons/Delete.vue";
 import EditIcon from "./icons/Edit.vue";
 import ToDoInput from './Input.vue';
@@ -64,6 +66,7 @@ export default {
   data() {
     return {
       updatedText: '',
+      hasError: false,
     }
   },
   computed: {
@@ -80,12 +83,14 @@ export default {
     },
     handleEdit () {
       this.setEditModeId(this.task.id);
+      Vue.nextTick(() => {
+        this.focusInput();
+      });
     },
     changeText(text) {
       this.updatedText = text;
     },
     handleSave () {
-      // console.log(!this.updatedText !this.task.text)
       if (!(this.updatedText || this.task.text)) {
         return;
       }
@@ -96,6 +101,10 @@ export default {
     setEditModeId (id) {
       this.$store.commit('setEditModeTaskId', id);
     },
+    focusInput () {
+      this.$refs.inputContainer.$refs.input.focus();
+
+    }
   },
 }
 </script>
