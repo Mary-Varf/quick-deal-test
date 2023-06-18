@@ -5,12 +5,12 @@
     <ToDoCreate/>
     <ToDoList />
 
-    <button class="btn btn-fixed"
-            data-name="go back">
-      <router-link to="/">
+    <router-link to="/">
+      <button class="btn btn-fixed"
+              data-name="go back">
         <GoBackIcon />
-      </router-link>
-    </button>
+      </button>
+    </router-link>
   </section>
 </template>
 

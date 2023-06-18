@@ -130,7 +130,7 @@ li {
 .btn:disabled {
   cursor: not-allowed;
 }
-.text_btn a{
+.text_btn{
   font-size: 20px;
   text-decoration: none;
   color: var(--violet);
