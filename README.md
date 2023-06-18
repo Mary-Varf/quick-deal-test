@@ -3,7 +3,7 @@
 > test task from Quick Deal
 
 
-<p align="center"><img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjQ0ODA1ZGRkZmY5Njg5ZjRhZmJlMzAxNzRlZGYxYzExYzY1ZDE4MiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/isFi8e6E5CyHhxiSsP/giphy.gif" width="60%"></p>
+<p align="center"><img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjUzZHZidnpydWwzYTUwejM5am94N2ozMW4xbGE1b25rbmVzdjBiZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5XVd6nHtIK9UXoOcqc/giphy.gif" width="60%"></p>
 
 ## Build Setup
 
