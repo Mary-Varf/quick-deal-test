@@ -1,6 +1,6 @@
 # test_quick_deal
 
-> test for Quick Deal
+> test task from Quick Deal
 
 ## Build Setup
 
